@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build cpp file",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "if (!(Test-Path '${fileDirname}/build')) { New-Item -ItemType Directory -Path '${fileDirname}/build' }; g++ '${file}' -o '${fileDirname}/build/${fileBasenameNoExtension}.exe'"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
